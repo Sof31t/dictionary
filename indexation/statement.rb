@@ -6,10 +6,10 @@ class Statement < ActiveRecord::Base
   @@new_line = "\\n"
 
   # Remove anything to keep only words
-  @@regexp = Regexp.new(' [\p{Any}]\'|\n|-|[^a-zA-ZéèàùêûîôŒ \']') 
+  @@regexp = Regexp.new(' [\p{Any}]\'|-|[^a-zA-ZéèàùêûîôŒ \']') 
 
   def clean_definition
-    self.definition.gsub(@@new_line,' ').gsub(@@quote,' ')
+    self.definition.gsub(@@new_line,' ').gsub(@@regexp,' ')
   end
 
   def get_definition_words

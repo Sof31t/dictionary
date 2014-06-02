@@ -7,7 +7,7 @@ load 'occurence.rb'
 load 'fill_database.rb'
 
 class Indexation
-  fill_statements()
+  # fill_statements()
   fill_words()
 end
 
